@@ -1,4 +1,4 @@
-package JavaHW.Spring2022;
+
 import java.util.*;
 
 public class BidirectionalBFS {
@@ -31,7 +31,7 @@ public class BidirectionalBFS {
             }
         }
     }
-    class BidirectionalSearch{
+    static class BidirectionalSearch{
         static String BidirectionalSearchPath(Graph G, int src, int dest){
             String path="";
             boolean[] Visited1=new boolean[G.V];

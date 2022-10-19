@@ -1,8 +1,4 @@
-package JavaHW.Spring2022;
 
-import java.util.*;
-import java.lang.*;
-import java.io.*;
 
 class Bipartite {
 
@@ -12,7 +8,7 @@ class Bipartite {
         for (int i = 0; i < V; i++)
             colorArr[i] = -1;
         colorArr[src] = 1;
-        LinkedList<Integer> q = new LinkedList<>();
+        java.util.LinkedList<Integer> q = new java.util.LinkedList<Integer>();
         q.add(src);
         while (q.size() != 0) {
             int x = q.poll();

@@ -8,6 +8,7 @@ public class BalancedParentheses {
         String str = sc.next();
         char[] parentheses = str.toCharArray();
         boolean balanced = true;
+        sc.close();
         for(int i = 0; i < parentheses.length; i++) {
             if (parentheses[i] == '(') {
                 s.push(parentheses[i]);

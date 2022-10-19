@@ -1,10 +1,24 @@
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
 
-public class WeirdAlgorithm {
+
+import java.util.StringTokenizer;
+import java.util.HashSet;
+public class DistinctNumbers {
+    public static void main(String[] args) {
+        FastReader s = new FastReader();
+        int n = s.nextInt();
+        HashSet<Integer> set = new HashSet<>();
+        for (int i = 0; i < n; i++) {
+            int temp = s.nextInt();
+            if (!set.contains(temp)) {
+                set.add(temp);
+            }
+        }
+        System.out.println(set.size());
+    }
+
     static class FastReader {
         BufferedReader br;
         StringTokenizer st;
@@ -49,20 +63,4 @@ public class WeirdAlgorithm {
             return str;
         }
     }
-
-    public static void main(String[] args) {
-        FastReader s = new FastReader();
-        long n = s.nextLong();
-        System.out.println(n);
-        while (n != 1) {
-            if (n % 2 == 0) {
-                n = n / 2;
-                System.out.println(n);
-            } else {
-                n = 3 * n + 1;
-                System.out.println(n);
-            }
-        }
-    }
 }
-
