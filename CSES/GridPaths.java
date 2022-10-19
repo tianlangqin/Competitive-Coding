@@ -9,8 +9,11 @@ public class GridPaths {
         for (int i = 0; i < n; i++) {
             grid[i] = sc.nextLine().toCharArray();
         }
+        
+        int[][] dp = new int[n][n]; 
         sc.close(); 
 
         
     }    
 }
+
