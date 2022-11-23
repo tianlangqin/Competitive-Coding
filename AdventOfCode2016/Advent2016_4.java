@@ -2,9 +2,6 @@ package AdventOfCode2016;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/**
- * @author /u/Philboyd_Studge on 12/3/2016.
- */
 public class Advent2016_4 {
 
     static int getID(String s) {

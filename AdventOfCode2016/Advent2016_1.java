@@ -4,9 +4,6 @@ import java.util.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-/**
- * @author /u/Philboyd_Studge on 11/30/2016.
- */
 public class Advent2016_1 {
 
     enum Direction {
