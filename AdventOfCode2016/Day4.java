@@ -2,7 +2,7 @@ package AdventOfCode2016;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Advent2016_4 {
+public class Day4 {
 
     static int getID(String s) {
         return Integer.parseInt(s.substring(0,s.indexOf("[")));
