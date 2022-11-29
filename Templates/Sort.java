@@ -14,14 +14,21 @@ public class Sort {
 
     static int[] insertionSort(int[] arr) {
         int n = arr.length;
+
+        // loop through the array
         for (int i = 1; i < n; i++) {
             int key = arr[i];
             int j = i -1;
-
+            
+            //compare the current element(key) to the previous element (arr[j])
+            //if it's greater, then shift arr[j] up the array by one
+            //then compare the element before j with key. 
             while (j >= 0 && arr[j] > key) {
                 arr[j + 1] = arr[j];
-                j = j - 1;
+                j--;
             }
+
+            //finally shift key in front of everything that's larger than it. 
             arr[j + 1] = key; 
         }
         return arr;
