@@ -1,8 +1,6 @@
 package AdventOfCode2022;
 import java.util.*;
 
-import javax.print.attribute.HashAttributeSet;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 
