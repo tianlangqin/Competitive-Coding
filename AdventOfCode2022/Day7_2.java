@@ -38,34 +38,22 @@ public class Day7_2 {
                         currDir = temp;
                     }
                 }
-                else if (input[1].equals("ls")) {
-                    continue;
-                }
             }
+
             else {
-                if (input[0].equals("dir")) {
-                    // Pair temp = new Pair(input[1], -1);
-                    // g.addNode(temp);
-                    // g.addEdge(temp, currDir);
-                }
-                else {
+                if (!input[0].equals("dir")) {
                     Pair temp = new Pair(input[1], Integer.parseInt(input[0]));
                     g.addNode(temp);
                     g.addEdge(currDir, temp);
                 }
             }
         }
-
+        
         int total = g.sum(root);
-
         for (Pair i : g.adj.keySet()) {
             
             if (i.value == -1 ) {
-                //System.out.println(i.key);
-                //System.out.println();
                 int sum = g.sum(i);
-                //System.out.println(i);
-                //System.out.println(sum);
                 if (70000000 - total + sum >= 30000000) {
                     result = Math.min(result, sum);
                 }   
@@ -73,10 +61,6 @@ public class Day7_2 {
         }
         System.out.println(result);
     } 
-
-    static int calcSize (Pair dir, Graph g) {
-        return 1;
-    }
 
     static class Graph {
         HashMap<Pair, ArrayList<Pair>> adj;
@@ -97,26 +81,6 @@ public class Day7_2 {
             return adj.get(v);
         }
 
-        public void bfs(Pair v) {
-            Queue<Pair> q = new LinkedList<>();
-            HashSet<Pair> visited = new HashSet<>();
-            q.add(v);
-            visited.add(v);
-            while (q.size() != 0) {
-                v = q.poll();
-                System.out.println(v);
-                Iterator<Pair> i = adj.get(v).listIterator();
-                while (i.hasNext()) {
-                    Pair temp = i.next();
-                    if (!visited.contains(temp)) {
-                        visited.add(temp);
-                        q.add(temp);
-                    }
-                }
-            }
-        }
-        
-
         public int sum(Pair v) {
             int result = 0;
             Queue<Pair> q = new LinkedList<>();
@@ -127,7 +91,6 @@ public class Day7_2 {
                 v = q.poll();
                 if (v.value != -1) {
                     result += v.value;
-                    //System.out.println(result);
                 }
                 Iterator<Pair> i = adj.get(v).listIterator();
                 while (i.hasNext()) {
@@ -138,8 +101,6 @@ public class Day7_2 {
                     }
                 }
             }
-            //System.out.println(result);
-            //System.out.println();
             return result;
         }
     }

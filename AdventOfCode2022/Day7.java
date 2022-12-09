@@ -19,6 +19,7 @@ public class Day7 {
         ArrayList<Pair> path = new ArrayList<>();
         path.add(root);
 
+        //populate the tree
         while(sc.hasNextLine()) {
             String[] input = sc.nextLine().split(" ");
             if (input[0].equals("$")) {
@@ -38,17 +39,10 @@ public class Day7 {
                         currDir = temp;
                     }
                 }
-                else if (input[1].equals("ls")) {
-                    continue;
-                }
             }
+
             else {
-                if (input[0].equals("dir")) {
-                    // Pair temp = new Pair(input[1], -1);
-                    // g.addNode(temp);
-                    // g.addEdge(temp, currDir);
-                }
-                else {
+                if (!input[0].equals("dir")) {
                     Pair temp = new Pair(input[1], Integer.parseInt(input[0]));
                     g.addNode(temp);
                     g.addEdge(currDir, temp);
@@ -56,15 +50,10 @@ public class Day7 {
             }
         }
 
-       
+        //loop through every directory in the tree and find the size of each
         for (Pair i : g.adj.keySet()) {
-            
             if (i.value == -1 ) {
-                //System.out.println(i.key);
-                //System.out.println();
                 int sum = g.sum(i);
-                //System.out.println(i);
-                //System.out.println(sum);
                 if (sum < 100000 ) {
                     result += sum;
                     
@@ -73,10 +62,6 @@ public class Day7 {
         }
         System.out.println(result);
     } 
-
-    static int calcSize (Pair dir, Graph g) {
-        return 1;
-    }
 
     static class Graph {
         HashMap<Pair, ArrayList<Pair>> adj;
@@ -97,24 +82,6 @@ public class Day7 {
             return adj.get(v);
         }
 
-        public void bfs(Pair v) {
-            Queue<Pair> q = new LinkedList<>();
-            HashSet<Pair> visited = new HashSet<>();
-            q.add(v);
-            visited.add(v);
-            while (q.size() != 0) {
-                v = q.poll();
-                System.out.println(v);
-                Iterator<Pair> i = adj.get(v).listIterator();
-                while (i.hasNext()) {
-                    Pair temp = i.next();
-                    if (!visited.contains(temp)) {
-                        visited.add(temp);
-                        q.add(temp);
-                    }
-                }
-            }
-        }
         
 
         public int sum(Pair v) {
@@ -138,8 +105,6 @@ public class Day7 {
                     }
                 }
             }
-            //System.out.println(result);
-            //System.out.println();
             return result;
         }
     }
