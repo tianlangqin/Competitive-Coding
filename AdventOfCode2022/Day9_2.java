@@ -29,72 +29,48 @@ public class Day9_2 {
 
         while(sc.hasNextLine()) {
             String[] input = sc.nextLine().split(" ");
-            //System.out.println(input[0]);
             int displacement = Integer.parseInt(input[1]);
             String direction = input[0];
 
-            if (input[0].equals("U")) {
+            if (direction.equals("U")) {
                 for (int i = 0; i< displacement; i++) {
                     ycor[0] --;
                     for (int j = 0 ; j < 9; j++) {
-                        if (j == 4) {
-                            System.out.println(ycor[j] + " " + xcor[j]);
-                            System.out.println(ycor[j + 1] + " " + xcor[j + 1]);
-                            System.out.println();
-                        }
-                        moveU(j);
-                        moveD(j);
-                        moveL(j);
-                        moveR(j);
+                        move(j);
                     }
                     map[ycor[9]][xcor[9]] = '#';
                 }
             }
 
-            if (input[0].equals("D")) {
+            if (direction.equals("D")) {
                 for (int i = 0; i< displacement; i++) {
                     ycor[0] ++;
                     for (int j = 0 ; j < 9; j++) {
-                        moveU(j);
-                        moveD(j);
-                        moveL(j);
-                        moveR(j);
+                        move(j);
                     }
                     map[ycor[9]][xcor[9]] = '#';
                 }
             }
 
-            if (input[0].equals("L")) {
+            if (direction.equals("L")) {
                 for (int i = 0; i< displacement; i++) {
                     xcor[0] --;
                     for (int j = 0 ; j < 9; j++) {
-                        moveU(j);
-                        moveD(j);
-                        moveL(j);
-                        moveR(j);
+                        move(j);
                     }
                     map[ycor[9]][xcor[9]] = '#';
                 }
             }
 
-            if (input[0].equals("R")) {
+            if (direction.equals("R")) {
                 for (int i = 0; i< displacement; i++) {
                     xcor[0] ++;
                     for (int j = 0 ; j < 9; j++) {
-                        moveU(j);
-                        moveD(j);
-                        moveL(j);
-                        moveR(j);
+                        move(j);
                     }
                     map[ycor[9]][xcor[9]] = '#';
                 }
             }   
-            
-
-            for (int i = 0; i < 10; i++) {
-                System.out.println(ycor[i] + " " + xcor[i]);
-            }
-            System.out.println();
         }
 
         for (int i = 0; i < 10001; i++) {
@@ -104,19 +80,11 @@ public class Day9_2 {
                 }
             }
         }
-
-        for (int i = 4990; i < 5011; i++) {
-            for (int j = 4990; j < 5011; j++) {
-                map[5000][5000] = 's';
-                System.out.print(map[i][j] + " ");
-            }
-            System.out.println();
-        }
         
         System.out.println(result);
     }
 
-    static void moveU (int i) {
+    static void move (int i ) {
         if (ycor[i + 1] - ycor[i] >= 2 ) {
             if (xcor[i ] - xcor[i  + 1] > 0) {
                 ycor[i + 1]--;
@@ -130,9 +98,7 @@ public class Day9_2 {
                 ycor[i + 1]--;
             }
         }
-    }
 
-    static void moveD (int i) {
         if (ycor[i] - ycor[i + 1] >= 2) {
             if (xcor[i ] - xcor[i  + 1] > 0) {
                 ycor[i + 1]++;
@@ -146,10 +112,7 @@ public class Day9_2 {
                 ycor[i + 1]++;
             }
         }
-    
-    }
 
-    static void moveL (int i) {
         if (xcor[i + 1] - xcor[i ] >= 2) {
             if (ycor[i] - ycor[i + 1] > 0) {
                 ycor[i + 1]++;
@@ -163,10 +126,7 @@ public class Day9_2 {
                 xcor[i  + 1]--;
             }
         }
-        
-    }
 
-    static void moveR (int i) {
         if (xcor[i ] - xcor[i  + 1] >= 2) {
             if (ycor[i] - ycor[i + 1] > 0) {
                 ycor[i + 1]++;
