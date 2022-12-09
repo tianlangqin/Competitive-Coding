@@ -123,12 +123,4 @@ public class Day9 {
         
         System.out.println(result);
     }
-    // for (int i = 0; i < displacement; i++ ) {
-                //     hy ++;
-                //     for (int j = hx - 1; j < hx + 2; j++) {
-                //         for (int k = hy - 1; k < hy + 2; k++) {
-                            
-                //         }
-                //     }
-                // }
 }
